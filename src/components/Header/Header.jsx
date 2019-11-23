@@ -5,6 +5,8 @@ import classNames from 'classnames';
 
 import Menu from '../Menu';
 
+import Button from '@material-ui/core/Button';
+
 const items = [
     { title: 'Home', href: '/' },
     { title: 'News', href: '/news' },
@@ -27,6 +29,9 @@ export default class Header extends Component {
         return (
             <header className={headerClasses}>
                 <Menu items={items} />
+                <Button variant="contained" color="primary">
+                    Hello World
+                </Button>
             </header>
         )
     }

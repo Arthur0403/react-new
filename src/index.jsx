@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
-import Header from './components/Header';
+
+import Header from 'components/Header';
+import Container from 'components/Container';
+import Counter from 'components/Counter';
+import CommentsList from 'components/CommentsList';
 
 class App extends Component {
     render() {
@@ -8,6 +12,11 @@ class App extends Component {
             <div>
                 <Header size="big" color="magenta"/>
                 <Header size="small" color="magenta"/>
+                <Container>
+                    <div>Hello world</div>
+                    <Counter/>
+                    <CommentsList/>
+                </Container>
             </div>
         );
     }

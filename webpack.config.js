@@ -10,7 +10,8 @@ module.exports = {
     },//куда собираем
     resolve: {
         alias: {
-           components: path.resolve(__dirname, 'src', 'components')
+           components: path.resolve(__dirname, 'src', 'components'),
+           containers: path.resolve(__dirname, 'src', 'containers'),
         },
         extensions: ['.js', '.jsx'],
     },
@@ -31,6 +32,9 @@ module.exports = {
                 })
             }
         ]
+    },
+    devServer: {
+        historyApiFallback: true,
     },
     plugins: [ //plugin register
         new ExtractTextPlugin({ filename: 'style.css' }),

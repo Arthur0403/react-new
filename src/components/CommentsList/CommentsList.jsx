@@ -1,35 +1,35 @@
 
 import './CommentsList.css';
 
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import CommentsForm from 'components/CommentsForm';
+import { Link } from 'react-router-dom';
 
 
-export default class CommentsList extends Component {
-    static defaultProps = {}
+export default class CommentsList extends PureComponent {
+    // constructor(props) {
+    //     super(props);
 
-    constructor(props) {
-        super(props);
+    //     this.state = {
+    //         comments: [],
+    //     }
+    // }
 
-        this.state = {
-            comments: [],
-        }
-    }
-
-    handleComment = (comment) => {
-        this.setState((prevState) => ({
-            comments: prevState.comments.concat([comment]),
-        }));
-    }
+    // handleComment = (comment) => {
+    //     this.setState((prevState) => ({
+    //         comments: prevState.comments.concat([comment]),
+    //     }));
+    // }
 
     render() {
-        const { comments } = this.state;
+        const { comments, loading, onLoadMore } = this.props;
         return (
             <div className="CommentsList">
                 <ul>
-        {comments.map((comment, idx) => <li key={idx}>{comment.author}: {comment.message}</li>)}
+                    {comments.map((comment) => <li key={comment.id}><Link to={`/comments/${comment.id}`}>{comment.name}</Link>: {comment.body}</li>)}
                 </ul>
-                <CommentsForm onComment={this.handleComment} />
+                {/* <CommentsForm onComment={this.handleComment} /> */}
+                <button onClick={onLoadMore} disabled={loading}>LoadMore</button>
             </div>
         )
     }

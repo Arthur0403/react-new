@@ -19,9 +19,9 @@ const componentCode =
 `
 import './${componentName}.css';
 
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-export default class ${componentName} extends Component {
+export default class ${componentName} extends PureComponent {
     static defaultProps = {
        
     }

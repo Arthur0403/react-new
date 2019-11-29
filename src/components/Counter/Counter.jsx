@@ -7,7 +7,7 @@ export default class Counter extends Component {
     static defaultProps = {}
     //initialisation statement
     constructor(props) {
-        super(props);
+        super(props); //Обязытельно
 
         //this.handlPlusClick = this.handlPlusClick.bind(this)
 
@@ -32,7 +32,7 @@ export default class Counter extends Component {
 
     handleClick = (event) => {
         const addition = event.target.name === 'plus' ? 1 : -1;
-
+        //функция которая меняет состояние - просто говорим новое состояние
         this.setState((prevState) => ({
             counter: prevState.counter + addition,
         }));
